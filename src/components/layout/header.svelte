@@ -1,13 +1,20 @@
+<script>
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
+
+	const forward = () => dispatch('img-click');
+</script>
+
 <header class="menu">
-    <img src="https://via.placeholder.com/150" alt="Logo" class="menu__logo">
+    <img src="https://via.placeholder.com/150" alt="Logo" class="menu__logo" on:click="{forward}">
     <nav class="menu__nav">
         <ul class="menu__list">
-            <li class="menu__item">Item 1</li>
-            <li class="menu__item">Item 2</li>
-            <li class="menu__item">Item 3</li>
+            <slot></slot>
         </ul>
     </nav>
 </header>
+
 
 <style>
     .menu {
